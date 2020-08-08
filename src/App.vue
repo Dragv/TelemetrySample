@@ -7,18 +7,13 @@
           app
           clipped
         >
-            <v-list dense>
-              <v-list-item link>
-                <v-list-item-title avatar>
-                  Home
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item link>
-                <v-list-item-title avatar>
-                  Admin
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
+          <v-list dense>
+            <v-list-item link v-for="(item, index) in navMenu" :key="index" :to="{ name: item.section }">
+              <v-list-item-title>
+                {{ item.section }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
         </v-navigation-drawer>
 
         <v-app-bar
@@ -30,10 +25,7 @@
         </v-app-bar>
 
         <v-main>
-          <v-container
-            class="fill-height"
-            fluid
-          >
+          <v-container fluid>
             <router-view />
           </v-container>
         </v-main>
@@ -52,7 +44,11 @@
     constructor( name, subComponentList = []) {
       super( name, subComponentList );
       this.vm = {
-        drawer: null
+        drawer: null,
+        navMenu:[
+          { section: "Home" },
+          { section: "Admin" },
+        ]
       }
     }
   }

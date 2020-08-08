@@ -7,19 +7,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 -->
 <template>
 
-    <section class="home-container">
-        <div class="home">
-            <div>Welcome to your {{ name }}</div>
-            <div class="dialog">
-
-                <form class="sample-form" @submit.prevent="login(nickname)">
-                    <label>Nickname:
-                        <input name="nick" v-model="nickname" placeholder="playerName">
-                    </label><br/>
-                </form>
-
-            </div>
-        </div>
+    <section>
     </section>
 
 </template>

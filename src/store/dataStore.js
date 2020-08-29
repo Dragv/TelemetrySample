@@ -8,18 +8,6 @@ let mostUsedAbilitiesData = [];
 let damagePerformedByTimeData = [];
 let winRateByClassesData = [];
 
-setInterval(() => {
-    const {
-        getWinRateByClasses,
-        damagePeformedByTime,
-        mostUsedAbility
-    } = Connection.refreshData();
-
-    getWinRateByClasses.then(result => winRateByClassesData = result).catch(error => console.log(error));
-    damagePeformedByTime.then(result => damagePerformedByTimeData = result).catch(error => console.log(error));
-    mostUsedAbility.then(result => mostUsedAbilitiesData = result).catch(error => console.log(error));
-}, 5000);
-
 export default {
     // PRIVATE: model state of the application, a bunch of POJS objects
     state: { 
@@ -46,8 +34,7 @@ export default {
     // called to retrieve state data from the store
     getters: {
         getData: () => Connection.get('Data'),
-        mostUsedAbilitiesData: state => state.mostUsedAbilitiesData,
-        damagePerformedByTimeData: state => state.damagePerformedByTimeData,
-        winRateByClassesData: state => state.winRateByClassesData
+        // Getter for the data
+        refreshData: () => Connection.refreshData
     },
 }

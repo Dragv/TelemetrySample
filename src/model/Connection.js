@@ -20,7 +20,6 @@ class Connection {
         firebase.initializeApp(config);
 
         this.db = firebase.firestore();
-        // this.functions = firebase.functions();
     }
 
     async get(modelToFind = '') {
@@ -41,6 +40,8 @@ class Connection {
         await docRef.set({ ...object });
     }
 
+    // Function to retrieve the data through axios, only works when emulating and having the 
+    // functions servies in port 5001 and the project name being telemetry-tes
     refreshData() {
         return {
             getWinRateByClasses: Axios.get('http://localhost:5001/telemetry-tes/us-central1/getWinRateByClasses'),

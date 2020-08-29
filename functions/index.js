@@ -10,10 +10,11 @@ cors({origin: true});
 exports.getWinRateByClasses = functions.https.onRequest(async (req, res) => {
   const readResult = await admin.firestore().collection('winRateByClasses').get();
 
-  return cors(req, res, () => {
+  res.set('Access-Control-Allow-Origin', '*');
+  // return cors(req, res, () => {
     console.log('getWinRateByClasses');
     res.status(200).json({currentScore: readResult});
-  });
+  // });
 });
 
 // Line Chart

@@ -15,9 +15,9 @@ setInterval(() => {
         mostUsedAbility
     } = Connection.refreshData();
 
-    getWinRateByClasses().then(result => winRateByClassesData = result).catch(error => console.log(error));
-    damagePeformedByTime().then(result => damagePerformedByTimeData = result).catch(error => console.log(error));
-    mostUsedAbility().then(result => mostUsedAbilitiesData = result).catch(error => console.log(error));
+    getWinRateByClasses.then(result => winRateByClassesData = result).catch(error => console.log(error));
+    damagePeformedByTime.then(result => damagePerformedByTimeData = result).catch(error => console.log(error));
+    mostUsedAbility.then(result => mostUsedAbilitiesData = result).catch(error => console.log(error));
 }, 5000);
 
 export default {

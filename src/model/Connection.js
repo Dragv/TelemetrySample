@@ -1,5 +1,5 @@
 import * as firebase from "firebase/app";
-require('firebase/functions');
+import Axios from 'axios';
 
 import "firebase/auth";
 import "firebase/firestore";
@@ -20,7 +20,7 @@ class Connection {
         firebase.initializeApp(config);
 
         this.db = firebase.firestore();
-        this.functions = firebase.functions();
+        // this.functions = firebase.functions();
     }
 
     async get(modelToFind = '') {
@@ -43,9 +43,9 @@ class Connection {
 
     refreshData() {
         return {
-            getWinRateByClasses: firebase.functions().httpsCallable('getWinRateByClasses'),
-            damagePeformedByTime: firebase.functions().httpsCallable('damagePeformedByTime'),
-            mostUsedAbility: firebase.functions().httpsCallable('mostUsedAbility')
+            getWinRateByClasses: Axios.get('http://localhost:5001/telemetry-tes/us-central1/getWinRateByClasses'),
+            damagePeformedByTime: Axios.get('http://localhost:5001/telemetry-tes/us-central1/damagePeformedByTime'),
+            mostUsedAbility: Axios.get('http://localhost:5001/telemetry-tes/us-central1/mostUsedAbility')
         }
     }
 }

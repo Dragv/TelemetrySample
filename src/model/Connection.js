@@ -4,6 +4,10 @@ import Axios from 'axios';
 import "firebase/auth";
 import "firebase/firestore";
 
+const APP_NAME = 'telemetry-tes';
+const FUNCTIONS_PORT = 5001;
+const REGION = 'us-central1';
+
 class Connection {
     constructor() {
         const config = {
@@ -44,9 +48,9 @@ class Connection {
     // functions servies in port 5001 and the project name being telemetry-tes
     refreshData() {
         return {
-            getWinRateByClasses: Axios.get('http://localhost:5001/telemetry-tes/us-central1/getWinRateByClasses'),
-            damagePeformedByTime: Axios.get('http://localhost:5001/telemetry-tes/us-central1/damagePeformedByTime'),
-            mostUsedAbility: Axios.get('http://localhost:5001/telemetry-tes/us-central1/mostUsedAbility')
+            getWinRateByClasses: Axios.get(`http://localhost:${FUNCTIONS_PORT}/${APP_NAME}/${REGION}/getWinRateByClasses`),
+            damagePeformedByTime: Axios.get(`http://localhost:${FUNCTIONS_PORT}/${APP_NAME}/${REGION}/damagePeformedByTime`),
+            mostUsedAbility: Axios.get(`http://localhost:${FUNCTIONS_PORT}/${APP_NAME}/${REGION}/mostUsedAbility`)
         }
     }
 }

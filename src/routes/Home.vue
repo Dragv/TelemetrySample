@@ -34,6 +34,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                     />
                 </v-col>
             </v-row>
+            <v-row>
                 <v-col>
                     <GChart
                         type="PieChart"
@@ -43,11 +44,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 </v-col>
                 <v-col>
                 </v-col>
-            <v-row>
                 {{initiatePolling()}}
-                {{this.mostUsedAbilitiesData}}
-                {{this.damagePerformedByTimeData}}
-                {{this.winRateByClassesData}}
             </v-row>
         </v-card>
     </section>

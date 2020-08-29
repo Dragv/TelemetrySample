@@ -1,6 +1,7 @@
 'use strict';
 
 import Vue from 'vue'
+import VueGoogleCharts from 'vue-google-charts'
 
 import store from '@/store'
 import router from '@/router'
@@ -12,6 +13,7 @@ import vuetify from './plugins/vuetify';
 
 // Main entry point of the application
 document.addEventListener('DOMContentLoaded', () => {
+    Vue.use(VueGoogleCharts);
 
     const app = new Vue({
         router,

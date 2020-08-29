@@ -1,4 +1,5 @@
 import * as firebase from "firebase/app";
+require('firebase/functions');
 
 import "firebase/auth";
 import "firebase/firestore";
@@ -19,6 +20,7 @@ class Connection {
         firebase.initializeApp(config);
 
         this.db = firebase.firestore();
+        this.functions = firebase.functions();
     }
 
     async get(modelToFind = '') {
@@ -37,6 +39,14 @@ class Connection {
         const docRef = this.db.collection(object.constructor.name).doc();
 
         await docRef.set({ ...object });
+    }
+
+    refreshData() {
+        return {
+            getWinRateByClasses: firebase.functions().httpsCallable('getWinRateByClasses'),
+            damagePeformedByTime: firebase.functions().httpsCallable('damagePeformedByTime'),
+            mostUsedAbility: firebase.functions().httpsCallable('mostUsedAbility')
+        }
     }
 }
 

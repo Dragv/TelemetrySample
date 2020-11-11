@@ -8,3 +8,5 @@ jobs:
     - name: Hello world action step
       id: hello
       uses: Dragv/BuildAction@master
+      with:
+        myToken: ${{ secrets.GITHUB_TOKEN }}

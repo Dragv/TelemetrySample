@@ -7,4 +7,4 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: actions/BuildAction@master
+      uses: actions/BuildAction@V1.1

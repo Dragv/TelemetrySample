@@ -7,4 +7,4 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: Dragv/BuildAction@v1.2
+      uses: Dragv/BuildAction@master
